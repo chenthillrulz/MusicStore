@@ -2,6 +2,7 @@ module Spree
   module Admin
     class ProductsController < ResourceController
       helper 'spree/products'
+      layout "spree/layouts/admin"
 
 #      before_filter :check_json_authenticity, :only => :index
       before_filter :load_data, :except => :index
@@ -62,6 +63,7 @@ module Spree
           @option_types = OptionType.order(:name)
           @tax_categories = TaxCategory.order(:name)
           @shipping_categories = ShippingCategory.order(:name)
+          @artists = Artist.order(:name)
         end
 
         def collection
