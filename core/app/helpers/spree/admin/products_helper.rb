@@ -22,6 +22,18 @@ module Spree
           end
         end.join("").html_safe
       end
+
+      def artist_options_for(artist)
+        options = @artists.map do |a|
+          selected = artist.bands.include?(a)
+          content_tag(:option,
+                      :value    => a.id,
+                      :selected => ('selected' if selected)) do
+            a.name
+          end
+        end.join("").html_safe
+      end
+
     end
   end
 end

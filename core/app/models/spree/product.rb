@@ -73,7 +73,7 @@ module Spree
                     :artists,
                     :artist_ids
 
-    has_many :artists
+    has_and_belongs_to_many :artists
     has_many :songs
     has_many :reviews
 

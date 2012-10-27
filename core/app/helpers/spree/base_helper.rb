@@ -91,7 +91,7 @@ module Spree
 
     def breadcrumbs(taxon, separator="&nbsp;&raquo;&nbsp;")
       return "" if current_page?("/") || taxon.nil?
-      separator = raw(separator)
+      separator = raw('<span class="divider">/</span>')
       crumbs = [content_tag(:li, link_to(t(:home) , root_path) + separator)]
       if taxon
         crumbs << content_tag(:li, link_to(t(:products) , products_path) + separator)
@@ -100,21 +100,19 @@ module Spree
       else
         crumbs << content_tag(:li, content_tag(:span, t(:products)))
       end
-      crumb_list = content_tag(:ul, raw(crumbs.flatten.map{|li| li.mb_chars}.join), :class => 'inline')
-      content_tag(:nav, crumb_list, :id => 'breadcrumbs', :class => 'sixteen columns')
+      content_tag(:ul, raw(crumbs.flatten.map{|li| li.mb_chars}.join), :class => 'breadcrumb')
+      
     end
 
     def taxons_tree(root_taxon, current_taxon, max_level = 1)
       return '' if max_level < 1 || root_taxon.children.empty?
-      content_tag :ul, :class => 'taxons-list' do
         root_taxon.children.map do |taxon|
-          css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'current' : nil
+          css_class = (current_taxon && current_taxon.self_and_ancestors.include?(taxon)) ? 'active' : nil
           content_tag :li, :class => css_class do
            link_to(taxon.name, seo_url(taxon)) +
            taxons_tree(taxon, current_taxon, max_level - 1)
           end
         end.join("\n").html_safe
-      end
     end
 
     def available_countries
