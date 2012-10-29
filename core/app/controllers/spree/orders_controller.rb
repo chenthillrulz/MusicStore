@@ -3,8 +3,6 @@ module Spree
     rescue_from ActiveRecord::RecordNotFound, :with => :render_404
     helper 'spree/products'
 
-    respond_to :html
-
     def show
       @order = Order.find_by_number!(params[:id])
       respond_with(@order)
@@ -25,8 +23,6 @@ module Spree
             end
           end
         end
-      else
-        respond_with(@order)
       end
     end
 
