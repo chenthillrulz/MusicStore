@@ -67,6 +67,8 @@ Spree::Core::Engine.routes.draw do
     resources :states
     resources :tax_categories
     resources :products do
+      resources :songs
+      resources :reviews
       resources :product_properties
       resources :images do
         collection do

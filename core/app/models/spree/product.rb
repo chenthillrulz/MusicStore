@@ -73,7 +73,8 @@ module Spree
                     :shipping_category_id, :tax_category_id, :product_properties_attributes,
                     :variants_attributes, :taxon_ids, :option_type_ids,
                     :artists,
-                    :artist_ids
+                    :artist_ids,
+                    :heading
 
     has_and_belongs_to_many :artists
     has_many :songs
