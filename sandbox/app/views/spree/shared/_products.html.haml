@@ -1,0 +1,34 @@
+- paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+- paginated_products ||= products
+- if products.empty?
+  = t(:no_products_found)
+- elsif params.key?(:keywords)
+  %h6.search-results-title= t(:search_results, :keywords => h(params[:keywords]))
+- if products.any?
+  = reset_cycle('default')
+  #products.product-listing{"data-hook" => ""}
+    - products.each do |product|
+      /- if Spree::Config[:show_zero_stock_products] || product.has_stock?
+      .span3.product{"data-hook" => "products_list_item", :id => "product_#{product.id}", :itemscope => "", :itemtype => "http://schema.org/Product"}
+        %h6= link_to truncate(product.name, :length => 50), product, :class => 'info', :itemprop => "name", :title => product.name
+        .product-image
+          = link_to small_image(product, :itemprop => "image"), product, :itemprop => 'url'
+        .price.selling{:itemprop => "price"}= product.display_price
+        %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "paypal"}
+          %input{:alt => "Make payments with PayPal - it's fast, free and secure!", :border => "0", :name => "submit", :src => "https://www.paypal.com/en_US/i/btn/x-click-but22.gif", :type => "image"}
+          %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypal.com/en_US/i/scr/pixel.gif", :width => "1"}
+          %input{:name => "add", :type => "hidden", :value => "1"}
+          %input{:name => "cmd", :type => "hidden", :value => "_cart"}
+          %input{:name => "business", :type => "hidden", :value => "kathy@merriweather.ca"}
+          %input{:name => "item_name", :type => "hidden", :value => product.name}
+          %input{:name => "item_number", :type => "hidden", :value => product.sku}
+          %input{:name => "amount", :type => "hidden", :value => product.price}
+          %input{:name => "no_note", :type => "hidden", :value => "1"}
+          %input{:name => "shipping", :type => "hidden", :value => "0.00"}
+          %input{:name => "shipping2", :type => "hidden", :value => "0.00"}
+          %input{:name => "handling_cart", :type => "hidden", :value => "0.00"}
+          %input{:name => "currency_code", :type => "hidden", :value => "CAD"}
+          %input{:name => "lc", :type => "hidden", :value => "CA"}
+          %input{:name => "bn", :type => "hidden", :value => "PP-ShopCartBF"}
+- if paginated_products.respond_to?(:num_pages)
+  = paginate paginated_products

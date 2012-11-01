@@ -1,0 +1,17 @@
+
+.form-horizontal
+	.fieldset
+		.control-group
+			%label.control-label{:for => "addressInput"} Append with button
+			.controls
+				.input-append
+					%input#addressInput{:type => "text"}
+				%button.btn#search{:type => "button"} Search!
+		.control-group
+			.controls
+				%select#locationSelect{:style=>'width: 100%; visibility: hidden', :class=>'span3'}
+
+#map
+- content_for :script do
+	= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false"
+	= javascript_include_tag "maps/mw_locator.js"

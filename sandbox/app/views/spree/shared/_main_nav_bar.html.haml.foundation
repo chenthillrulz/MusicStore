@@ -1,0 +1,11 @@
+.row.menu
+	.span2.offset-by-one
+		.quarter-note
+		= link_to 'Home', root_path
+	.span2.offset-by-one
+		= link_to "Recordings", products_path
+	.span2
+		= link_to "Artists", artists_path
+	.span2
+		#link-to-cart{"data-hook" => ""}
+			= link_to_cart

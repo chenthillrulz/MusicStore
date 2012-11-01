@@ -1,0 +1,6 @@
+= f.association :artists, :collection => Artist.all, :input_html => {:class => 'select2', :multiple => true}
+
+- content_for :script do
+	:javascript
+		$("#product_artist_ids").select2();
+		CKEDITOR.replace('product[description]');

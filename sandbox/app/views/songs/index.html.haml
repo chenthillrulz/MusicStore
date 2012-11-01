@@ -1,0 +1,28 @@
+= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Songs' }
+
+
+- content_for :script do
+  :javascript
+    audiojs.events.ready(function(){
+        var as = audiojs.createAll();
+      });
+  
+%h1 Listing songs
+
+%table.table
+  %tr
+    %th Name
+    %th.span2 Listen
+    %th 
+
+  - @songs.each do |song|
+    %tr
+      %td= song.name
+      %td= audio_tag song.mp3, :autoplay => true, :controls => true, :id => 'jplayer'
+      %td.actions{ "data-hook"=>"admin_product_song_index_row_actions"}
+        = link_to '', edit_admin_product_song_url(@product, song), :no_text => true, :class => 'edit icon_link with-tip icon-edit no-text', :data => {:action => 'edit'}
+        = link_to '', [:admin, @product, song], :no_text => true, :class => 'delete-resource icon_link with-tip icon-trash no-text', :method => :delete, :data => {:action => 'remove'}
+
+%br
+
+= link_to 'New Song', new_admin_product_song_url(@product), :class => 'btn'

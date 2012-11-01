@@ -1,0 +1,16 @@
+= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Reviews' }
+
+= simple_form_for ([:admin,@product,@review]), :html => {:class => 'form-horizontal'} do |f|
+  - if @review.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
+      %ul
+        - @review.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :name, :input_html => {:class => 'span8'}
+  = f.input :author, :input_html => {:class => 'span8'}
+  = f.input :content, :as => :ckeditor, :input_html => {:class => 'span8 editable'}
+  /= f.input :author
+  .actions
+    = f.submit 'Save', :class => 'btn'
+    = link_to 'Back', admin_product_reviews_url(@product), :class => 'btn'

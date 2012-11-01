@@ -1,0 +1,70 @@
+!!! 5
+/[if lt IE 7 ] <html class="ie ie6" lang="en">
+/[if IE 7 ] <html class="ie ie7" lang="en">
+/[if IE 8 ] <html class="ie ie8" lang="en">
+/[if IE 9 ] <html class="ie ie9" lang="en">
+/ [if gt IE 9]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head{"data-hook" => "admin_inside_head"}
+    = render :partial => 'spree/admin/shared/head'
+    = stylesheet_link_tag "../assets/admin/custom", :media => "all"
+  %body.admin{"data-ajax-root-path" => spree.root_path}
+    #root{"data-hook" => ""}
+      - if flash[:error]
+        .flash.error= flash[:error]
+      - if notice
+        .flash.notice= notice
+      - if flash[:success]
+        .flash.success= flash[:success]
+      #progress
+        .wrapper
+          #spinner
+          .progress-message
+            = t(:loading)
+            \...
+      = render :partial => 'spree/admin/shared/alert', :collection => session[:alerts]
+      %header#header{"data-hook" => ""}
+        .row
+          %figure.columns.three{"data-hook" => "logo-wrapper"}
+            = link_to image_tag(Spree::Config[:admin_interface_logo], :id => 'logo'), spree.admin_path
+          %nav.columns.nine{"data-hook" => "admin_login_navigation_bar"}
+      %nav#admin-menu{"data-hook" => ""}
+        .row
+          .twelve.columns.main-menu-wrapper
+            %ul.inline-menu.fullwidth-menu{"data-hook" => "admin_tabs"}
+              = render :partial => 'spree/admin/shared/tabs'
+      - if content_for?(:sub_menu)
+        %nav#sub-menu{"data-hook" => ""}
+          .row
+            .twelve.columns
+              = yield :sub_menu
+      - if content_for?(:page_title) || content_for?(:page_actions)
+        #content-header{"data-hook" => ""}
+          .row
+            .twelve.columns
+              .block-table
+                - if content_for?(:page_title)
+                  .table-cell
+                    %h1{:class => "page-title #{yield :page_title_classes}"}= yield :page_title
+                - if content_for?(:page_actions)
+                  .page-actions.table-cell.toolbar{"data-hook" => "toolbar"}
+                    %ul.inline-menu
+                      = yield :page_actions
+      .row
+        #content{:class => 'with-sidebar ' if content_for?(:sidebar), "data-hook" => ""}
+          - if content_for?(:table_filter)
+            #table-filter{:class => "#{if content_for?(:sidebar) then 'nine' else 'twelve' end} columns", "data-hook" => ""}
+              %fieldset
+                %legend= yield :table_filter_title
+                = yield :table_filter
+          %div{:class => "#{if content_for?(:sidebar) then 'nine' else 'twelve' end} columns"}
+            = yield
+          - if content_for?(:sidebar)
+            %aside#sidebar.four.columns{"data-hook" => ""}
+              - if content_for?(:sidebar_title)
+                %h5.sidebar-title
+                  %span= yield :sidebar_title
+              = yield :sidebar
+    %div{"data-hook" => "admin_footer_scripts"}
+    = yield :script

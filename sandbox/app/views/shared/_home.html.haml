@@ -1,0 +1,37 @@
+#myCarousel.carousel.slide.well
+	.item.active
+		=image_tag "http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg"
+		.carousel-caption
+			%h4
+				Welcome to the new Merriweather Records
+			%p
+				Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. 
+	- Gallery.all.each do |gallery|
+		.item
+			=image_tag gallery.image
+			.carousel-caption
+				%h4	
+					=gallery.name
+				=raw gallery.content
+	%a.carousel-control.left{:href => "#myCarousel", :data => {:slide => "prev"}}
+		&lsaquo;
+	%a.carousel-control.right{:href => "#myCarousel", :data => {:slide => "next"}}
+		&rsaquo;
+- @posts.each do |post|
+	.well.hero-unit
+		.news-heading
+			= raw post.title
+		=raw post.content
+
+- content_for :sidebar do
+	.well{"data-hook" => "homepage_sidebar_navigation"}
+		%ul.nav.nav-list
+			%li.nav-header
+				Latest Albums
+			- @recentAlbums.each do |album|
+				%li
+					= link_to album.name, product_path(album) unless album.blank?
+
+- content_for :script do
+	:javascript
+		$('.carousel').carousel();

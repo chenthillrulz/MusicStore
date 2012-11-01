@@ -1,0 +1,405 @@
+/* line 1, solarized.scss */
+.highlight {
+  background-color: #f4f4f4;
+  border: solid 1px #eee;
+}
+
+/* line 2, solarized.scss */
+.c {
+  color: #93a1a1;
+  font-style: italic;
+}
+
+/* Comment */
+/* line 3, solarized.scss */
+.g {
+  color: #d33682;
+}
+
+/* Generic */
+/* line 4, solarized.scss */
+.k {
+  color: #859900;
+}
+
+/* Keyword */
+/* line 5, solarized.scss */
+.l {
+  color: #2aa198;
+}
+
+/* Literal */
+/* line 6, solarized.scss */
+.n {
+  color: #268bd2;
+}
+
+/* Name */
+/* line 7, solarized.scss */
+.cm {
+  color: #93a1a1;
+  font-style: italic;
+}
+
+/* Comment.Multiline */
+/* line 8, solarized.scss */
+.cp {
+  color: #93a1a1;
+  font-style: italic;
+}
+
+/* Comment.Preproc */
+/* line 9, solarized.scss */
+.c1 {
+  color: #93a1a1;
+  font-style: italic;
+}
+
+/* Comment.Single */
+/* line 10, solarized.scss */
+.cs {
+  color: #93a1a1;
+  font-style: italic;
+}
+
+/* Comment.Special */
+/* line 11, solarized.scss */
+.gd {
+  color: #d33682;
+}
+
+/* Generic.Deleted */
+/* line 12, solarized.scss */
+.ge {
+  color: #d33682;
+}
+
+/* Generic.Emph */
+/* line 13, solarized.scss */
+.gr {
+  color: #d33682;
+}
+
+/* Generic.Error */
+/* line 14, solarized.scss */
+.gh {
+  color: #d33682;
+}
+
+/* Generic.Heading */
+/* line 15, solarized.scss */
+.gi {
+  color: #d33682;
+}
+
+/* Generic.Inserted */
+/* line 16, solarized.scss */
+.go {
+  color: #d33682;
+}
+
+/* Generic.Output */
+/* line 17, solarized.scss */
+.gp {
+  color: #d33682;
+}
+
+/* Generic.Prompt */
+/* line 18, solarized.scss */
+.gs {
+  color: #d33682;
+}
+
+/* Generic.Strong */
+/* line 19, solarized.scss */
+.gu {
+  color: #d33682;
+}
+
+/* Generic.Subheading */
+/* line 20, solarized.scss */
+.gt {
+  color: #d33682;
+}
+
+/* Generic.Traceback */
+/* line 21, solarized.scss */
+.kc {
+  color: #859900;
+  font-weight: bold;
+}
+
+/* Keyword.Constant */
+/* line 22, solarized.scss */
+.kd {
+  color: #859900;
+}
+
+/* Keyword.Declaration */
+/* line 23, solarized.scss */
+.kn {
+  color: #dc322f;
+  font-weight: bold;
+}
+
+/* Keyword.Namespace */
+/* line 24, solarized.scss */
+.kp {
+  color: #859900;
+}
+
+/* Keyword.Pseudo */
+/* line 25, solarized.scss */
+.kr {
+  color: #859900;
+}
+
+/* Keyword.Reserved */
+/* line 26, solarized.scss */
+.kt {
+  color: #859900;
+  font-weight: bold;
+}
+
+/* Keyword.Type */
+/* line 27, solarized.scss */
+.ld {
+  color: #2aa198;
+}
+
+/* Literal.Date */
+/* line 28, solarized.scss */
+.m {
+  color: #2aa198;
+  font-weight: bold;
+}
+
+/* Literal.Number */
+/* line 29, solarized.scss */
+.s {
+  color: #2aa198;
+}
+
+/* Literal.String */
+/* line 30, solarized.scss */
+.na {
+  color: #268bd2;
+}
+
+/* Name.Attribute */
+/* line 31, solarized.scss */
+.nb {
+  color: #cb4b16;
+}
+
+/* Name.Builtin */
+/* line 32, solarized.scss */
+.nc {
+  color: #cb4b16;
+}
+
+/* Name.Class */
+/* line 33, solarized.scss */
+.no {
+  color: #268bd2;
+}
+
+/* Name.Constant */
+/* line 34, solarized.scss */
+.nd {
+  color: #268bd2;
+}
+
+/* Name.Decorator */
+/* line 35, solarized.scss */
+.ni {
+  color: #268bd2;
+}
+
+/* Name.Entity */
+/* line 36, solarized.scss */
+.ne {
+  color: #268bd2;
+}
+
+/* Name.Exception */
+/* line 37, solarized.scss */
+.nf {
+  color: #268bd2;
+}
+
+/* Name.Function */
+/* line 38, solarized.scss */
+.nl {
+  color: #268bd2;
+}
+
+/* Name.Label */
+/* line 39, solarized.scss */
+.nn {
+  color: #268bd2;
+}
+
+/* Name.Namespace */
+/* line 40, solarized.scss */
+.nx {
+  color: #268bd2;
+}
+
+/* Name.Other */
+/* line 41, solarized.scss */
+.py {
+  color: #268bd2;
+}
+
+/* Name.Property */
+/* line 42, solarized.scss */
+.nt {
+  color: #268bd2;
+  font-weight: bold;
+}
+
+/* Name.Tag */
+/* line 43, solarized.scss */
+.nv {
+  color: #268bd2;
+}
+
+/* Name.Variable */
+/* line 44, solarized.scss */
+.ow {
+  color: #859900;
+}
+
+/* Operator.Word */
+/* line 45, solarized.scss */
+.w {
+  color: #586e75;
+}
+
+/* Text.Whitespace */
+/* line 46, solarized.scss */
+.mf {
+  color: #2aa198;
+  font-weight: bold;
+}
+
+/* Literal.Number.Float */
+/* line 47, solarized.scss */
+.mh {
+  color: #2aa198;
+  font-weight: bold;
+}
+
+/* Literal.Number.Hex */
+/* line 48, solarized.scss */
+.mi {
+  color: #2aa198;
+  font-weight: bold;
+}
+
+/* Literal.Number.Integer */
+/* line 49, solarized.scss */
+.mo {
+  color: #2aa198;
+  font-weight: bold;
+}
+
+/* Literal.Number.Oct */
+/* line 50, solarized.scss */
+.sb {
+  color: #2aa198;
+}
+
+/* Literal.String.Backtick */
+/* line 51, solarized.scss */
+.sc {
+  color: #2aa198;
+}
+
+/* Literal.String.Char */
+/* line 52, solarized.scss */
+.sd {
+  color: #2aa198;
+}
+
+/* Literal.String.Doc */
+/* line 53, solarized.scss */
+.s2 {
+  color: #2aa198;
+}
+
+/* Literal.String.Double */
+/* line 54, solarized.scss */
+.se {
+  color: #2aa198;
+}
+
+/* Literal.String.Escape */
+/* line 55, solarized.scss */
+.sh {
+  color: #2aa198;
+}
+
+/* Literal.String.Heredoc */
+/* line 56, solarized.scss */
+.si {
+  color: #2aa198;
+}
+
+/* Literal.String.Interpol */
+/* line 57, solarized.scss */
+.sx {
+  color: #2aa198;
+}
+
+/* Literal.String.Other */
+/* line 58, solarized.scss */
+.sr {
+  color: #2aa198;
+}
+
+/* Literal.String.Regex */
+/* line 59, solarized.scss */
+.s1 {
+  color: #2aa198;
+}
+
+/* Literal.String.Single */
+/* line 60, solarized.scss */
+.ss {
+  color: #2aa198;
+}
+
+/* Literal.String.Symbol */
+/* line 61, solarized.scss */
+.bp {
+  color: #cb4b16;
+}
+
+/* Name.Builtin.Pseudo */
+/* line 62, solarized.scss */
+.vc {
+  color: #268bd2;
+}
+
+/* Name.Variable.Class */
+/* line 63, solarized.scss */
+.vg {
+  color: #268bd2;
+}
+
+/* Name.Variable.Global */
+/* line 64, solarized.scss */
+.vi {
+  color: #268bd2;
+}
+
+/* Name.Variable.Instance */
+/* line 65, solarized.scss */
+.il {
+  color: #2aa198;
+  font-weight: bold;
+}
+
+/* Literal.Number.Integer.Long */

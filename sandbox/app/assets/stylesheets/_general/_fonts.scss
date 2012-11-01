@@ -1,0 +1,58 @@
+// ---------------------------------------------------------------------------
+// Imports
+@import "font-license";
+@import "franklin-gothic";
+@import "century-oldstyle";
+
+
+//-----------------------------------------------------------------------------
+// Settings
+
+$mono-stack : Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+
+//-----------------------------------------------------------------------------
+// Mixins
+
+@mixin serif { font-family: $font-stack; }
+@mixin sans { font-family: $sans-stack; }
+@mixin cond { font-family: $cond-stack; }
+
+@mixin caps($serif: false) {
+  @if $serif {
+    font-family: $caps-stack;
+  }
+  text-transform: uppercase;
+}
+
+@font-face {
+    font-family: 'MEgalopolisExtraRegular';
+    src: url('megalopolisextra-webfont.eot');
+    src: url('megalopolisextra-webfont.eot?#iefix') format('embedded-opentype'),
+         url('megalopolisextra-webfont.woff') format('woff'),
+         url('megalopolisextra-webfont.ttf') format('truetype'),
+         url('megalopolisextra-webfont.svg#MEgalopolisExtraRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KomikaAxisRegular';
+    src: url('komikax_-webfont.eot');
+    src: url('komikax_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('komikax_-webfont.woff') format('woff'),
+         url('komikax_-webfont.ttf') format('truetype'),
+         url('komikax_-webfont.svg#MEgalopolisExtraRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OrbitronLight';
+    src: url('orbitron-light-webfont.eot');
+    src: url('orbitron-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('orbitron-light-webfont.woff') format('woff'),
+         url('orbitron-light-webfont.ttf') format('truetype'),
+         url('orbitron-light-webfont.svg#MEgalopolisExtraRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

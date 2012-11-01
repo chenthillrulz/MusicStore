@@ -1,0 +1,38 @@
+%h1 Listing stores
+
+%table.table
+  %tr
+    %th Name
+    %th Address
+    %th Coordinates
+    %th Phone
+    %th Url
+    %th Lat
+    %th Lng
+    %th
+
+  - @stores.each do |store|
+    %tr
+      %td= store.name
+      %td= store.address
+      %td= store.coordinates
+      %td= store.phone
+      %td= store.url
+      %td= store.lat
+      %td= store.lng
+      %td
+        .btn-group
+          %button{:class=>'btn btn-primary dropdown-toggle btn-mini', :data=>{:toggle => 'dropdown'}}
+            Action
+            %span{:class => 'caret'}
+          %ul{:class=>"dropdown-menu"}
+            %li
+              = link_to 'Show', store 
+            %li
+              = link_to 'Edit', edit_store_path(store)
+            %li
+              = link_to 'Destroy', store, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Store', new_store_path

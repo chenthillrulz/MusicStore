@@ -1,0 +1,30 @@
+.artists.well
+  .row
+    %h2 Merriweather Artists
+  .row
+    - @artists.each do |artist|
+      .span3.offset1.snapshot
+        %h4
+          = link_to artist.name, artist
+        = image_tag artist.image
+        - if user_signed_in?
+          .btn-group
+            %button{:class=>'btn btn-primary dropdown-toggle btn-mini', :data=>{:toggle => 'dropdown'}}
+              Action
+              %span{:class => 'caret'}
+            %ul{:class=>"dropdown-menu"}
+              %li
+                = link_to 'Show', artist
+              %li
+                = link_to 'Edit', edit_artist_path(artist)
+              %li
+                = link_to 'Destroy', artist, :confirm => 'Are you sure?', :method => :delete
+  - if user_signed_in?
+    = link_to 'New Artist', new_artist_path , :class => "btn", :icon => "icon-plus"
+
+- content_for :sidebar do
+  .well{"data-hook" => "homepage_sidebar_navigation"}
+    - if "home" == params[:controller] && @taxon
+      = render :partial => 'spree/shared/filters'
+    - else
+      = render :partial => 'spree/shared/taxonomies'

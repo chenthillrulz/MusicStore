@@ -1,0 +1,21 @@
+div class='navbar'
+	div class='navbar-inner'
+		div class='container'
+		a(class='btn btn-navbar' data-target=".subnav-collapse" data-toggle="collapse")
+		  span.icon-bar
+		  span.icon-bar
+		  span.icon-bar
+		a class='brand' href='#'
+			| Merriweather Records
+		div class='nav-collapse subnav-collapse'
+			ul(id='main-nav-bar' class='inline nav' data-hook)
+				li(id='home-link' data-hook="")
+					= link_to t(:home), root_path
+				li
+					= link_to "Artists", artists_path
+				li
+					= link_to "Catalogue", products_path
+			= render 'spree/shared/search'
+			ul class='nav pull-right'
+				li(id='link-to-cart' data-hook="")
+					= link_to_cart

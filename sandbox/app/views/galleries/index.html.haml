@@ -1,0 +1,38 @@
+#myCarousel.carousel.slide
+  .carousel-inner
+    - @galleries.each do |gallery|
+      .item.well
+        .pull-left
+          =image_tag gallery.image
+        .caption
+          %h4
+            = gallery.name
+          .content
+            =raw gallery.content
+  %a{:class=>"carousel-control left", :href=> "#myCarousel", :data=>{:slide=>"prev"}}
+    &lsaquo;
+  %a{:class=>"carousel-control right", :href=> "#myCarousel", :data=>{:slide=>"next"}}
+    &rsaquo;
+
+%h1 Listing galleries
+
+%table.table
+  %tr
+    %th Name
+    %th Content
+    %th Image
+    %th
+
+  - @galleries.each do |gallery|
+    %tr
+      %td= gallery.name
+      %td= raw gallery.content
+      %td= image_tag gallery.image_url(:thumb)
+      %td.actions{ "data-hook"=>"admin_gallery_index_row_actions"}
+        = link_to '', edit_gallery_path(gallery), :no_text => true, :class => 'edit icon_link with-tip icon-edit no-text', :data => {:action => 'edit'}
+        /&nbsp;
+        = link_to '', gallery, :no_text => true, :class => 'delete-resource icon_link with-tip icon-trash no-text', :method => :delete, :data => {:action => 'remove'}
+
+%br
+
+= link_to 'New Gallery', new_gallery_path, :class => 'btn'

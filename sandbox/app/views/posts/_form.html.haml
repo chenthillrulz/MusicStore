@@ -1,0 +1,16 @@
+= simple_form_for @post, :html => {:class => 'form-horizontal'} do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :title, :as => :ckeditor
+  = f.input :content, :as => :ckeditor
+  .actions
+    = f.submit 'Save'
+
+- content_for :scripts do
+  :javascript
+    
+    

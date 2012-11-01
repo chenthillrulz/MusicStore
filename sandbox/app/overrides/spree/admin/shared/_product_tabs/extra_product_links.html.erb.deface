@@ -1,0 +1,7 @@
+<!-- insert_bottom "[data-hook='admin_product_tabs']" -->
+<li<%== ' class="active"' if current == 'Songs' %>>
+  <%= link_to "Songs", admin_product_songs_url(@product) %>
+</li>
+<li<%== ' class="active"' if current == 'Reviews' %>>
+  <%= link_to "Reviews", admin_product_reviews_url(@product) %>
+</li>

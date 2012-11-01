@@ -1,0 +1,90 @@
+@import color-schemer
+
+$base-color: #3EC2EE
+$color-scheme: analogic
+$hue-offset: 20
+$brightness-offset: 20%
+
+// ---------------------------------------------------------------------------
+// Color System
+
+/****************************************** Color Scheme ***********************************/
+
+$primary: equalize(color-schemer(primary))
+$secondary: lighten(color-schemer(secondary), 10%)
+$tertiary: darken(color-schemer(tertiary), 10%)
+$quadrary: color-schemer(quadrary)
+
+$base: $primary
+
+
+$darken1: darken($base, 10%)
+$darken2: darken($base, 20%)
+$darken3: darken($base, 30%)
+
+$saturate1: saturate($base, 10%)
+$saturate2: saturate($base, 20%)
+$saturate3: saturate($base, 30%)
+
+$complement1: $secondary
+$complement2: $tertiary
+$complement3: $quadrary
+
+$lighten1: lighten($base, 15%)
+$lighten2: lighten($base, 20%)
+$lighten3: lighten($base, 30%)
+
+/* Implementation */
+
+$colors: $primary $secondary $tertiary $quadrary $darken1
+
+$background: $complement1
+
+
+// ---------------------------------------------------------------------------
+// Color Palette (Solarized: http://ethanschoonover.com/solarized)
+
+$base03:    #002b36
+$base02:    #073642
+$base01:    #586e75
+$base00:    #657b83
+$base0:     #839496
+$base1:     #93a1a1
+$base2:     #eee8d5
+$base3:     #fdf6e3
+$yellow:    #b58900
+$orange:    #cb4b16
+$red:       #dc322f
+$magenta:   #d33682
+$violet:    #6c71c4
+$blue:      #268bd2
+$cyan:      #2aa198
+$green:     #859900
+
+// ---------------------------------------------------------------------------
+// Color System
+
+$base             : $base00
+$alt              : $tertiary
+$accent           : $violet
+
+$susy-background:        $base3
+$susy-highlight:         $tertiary
+$susy-bodycopy:          $base00
+
+//5% darker
+$susy-background-dark-5: darken($susy-background, 5%)
+$susy-highlight-dark-5: darken($susy-highlight, 5%)
+$susy-bodycopy-dark-5: darken($susy-bodycopy, 5%)
+
+//10% darker
+$susy-background-dark-10: darken($susy-background, 10%)
+$susy-highlight-dark-10: darken($susy-highlight, 10%)
+$susy-bodycopy-dark-10: darken($susy-bodycopy, 10%)
+
+//20% darker
+$susy-background-dark-20: darken($susy-background, 20%)
+$susy-highlight-dark-20: darken($susy-highlight, 20%)
+$susy-bodycopy-dark-20: darken($susy-bodycopy, 20%)
+
+$grid-background-column-color: rgba(lighten($susy-background,5%),.5)

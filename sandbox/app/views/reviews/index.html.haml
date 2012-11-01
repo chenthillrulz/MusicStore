@@ -1,0 +1,26 @@
+= render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Reviews' }
+
+%h2
+  ='Reviews for ' + @product.name
+
+%table.table
+  %tr
+    %th Name
+    %th Content
+    %th Actions
+
+  - @reviews.each do |review|
+    %tr
+      %td= review.name
+      %td
+        .bubble
+          = raw review.content
+        %p.author
+          = review.author
+      %td.actions{ "data-hook"=>"admin_product_song_index_row_actions"}
+        = link_to '', edit_admin_product_review_url(@product, review), :no_text => true, :class => 'edit icon_link with-tip icon-edit no-text', :data => {:action => 'edit'}
+        = link_to '', [:admin, @product, review], :no_text => true, :class => 'delete-resource icon_link with-tip icon-trash no-text', :method => :delete, :data => {:action => 'remove'}
+
+%br
+
+= link_to 'New Review', new_admin_product_review_url(@product), :class => 'btn'

@@ -1,0 +1,4 @@
+/ insert_after "[data-hook='admin_footer_scripts']"
+
+= yield(:script)
+	

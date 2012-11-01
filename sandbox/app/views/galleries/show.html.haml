@@ -1,0 +1,37 @@
+/ .slide
+/ 	.hero-info
+/ 		.hero-navigation
+/ 			%a.previous-hero{:href => "#", :style => "display: inline; "}
+/ 				%img{:alt => "Previous", :height => "17", :src => "https://www.amoderneden.com/images/hero-nav-arrow-left.png", :width => "17"}/
+/ 			%p
+/ 				%em> 02
+/ 				Flashcards
+/ 			%a.next-hero{:href => "#", :style => "display: inline; "}
+/ 				%img{:alt => "Previous", :height => "17", :src => "https://www.amoderneden.com/images/hero-nav-arrow-right.png", :width => "17"}/
+/ 		.hero-title
+/ 			%h1.flashcards Flashcards
+/ 			%span So much better than watching Animal Planet
+/ 		%p.info Be more hands on with learning. Literally. With habitat, size, weight, and speed, kids can learn about an animal for each letter of the alphabet.
+/ 		%ul.hero-product
+/ 			%li.hero-productname
+/ 				%span.product-price $25
+/ 				%a{:href => "https://www.amoderneden.com/shop/browse_products/animal-flashcards"} Flashcards
+/ 			%li.add-bag
+/ 				%form{:action => "https://www.amoderneden.com/", :enctype => "multipart/form-data", :method => "post"}
+/ 					%input{:alt => "", :name => "my_add_button", :src => "https://www.amoderneden.com/images/add_cart.gif", :title => "Add to Shopping Bag!", :type => "image"}
+/ 			%li.view-products
+/ 				%a{:href => "https://www.amoderneden.com/shop/browse_products/animal-flashcards"} View Products
+
+%p#notice= notice
+
+.slide.well
+	.pull-left
+		= image_tag @gallery.image_url(:thumb) if @gallery.image?
+	%h1
+		= @gallery.name
+	%p
+		=raw @gallery.content
+
+= link_to 'Edit', edit_gallery_path(@gallery), :class => 'btn'
+\|
+= link_to 'Back', galleries_path, :class => 'btn'

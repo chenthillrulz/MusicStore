@@ -1,0 +1,214 @@
+@import "compass/css3/text-shadow"
+@import "compass/css3/box-shadow"
+@import "compass/typography/vertical_rhythm"
+@import "compass/utilities"
+
+$link   : '&:link, &:visited'
+$focus  : '&:hover, &:focus, &:active'
+
+/* Layout *//////////////////////////////
+
+html, body
+  height: 100%
+
+
+
+h3
+  @include letterpress(.8)
+
+#wrap
+  min-height: 100%
+
+#main
+  overflow: auto
+  padding-bottom: 150px /* this needs to be bigger than footer height*/
+
+body
+  background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/low_contrast_linen.png)
+
+  .blue-gradient-background
+    background: linear-gradient(top, $primary, $secondary 10%, $secondary 80%, $primary)
+  
+
+  #root
+    
+
+    header
+      font-weight: bold
+      h2 
+        @include adjust-font-size-to($medpx)
+        text-transform: uppercase
+        background: black(0)
+        color: white(0.9)
+        text-shadow: -1px -1px 1px #000000, 1px 1px 1px #CCCCCC
+        text-align: center
+        margin-top: 0px
+        padding-top: 15px
+      
+    
+
+    nav
+
+      .menu
+        background-color: $blueDark
+        color: lighten($blueDark, 40%)
+        @include single-box-shadow($blueDark, 0px, 5px, 10px, 5px)
+        a
+          padding-top: 5px
+          @include adjust-font-size-to($smallpx)
+        
+      
+    
+
+    .container
+      background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/retina_dust.png)
+      border-right: 20px solid white
+      border-left: 20px solid white
+      min-height: 100%
+
+      .row
+        margin-top: 20px
+        margin-bottom: 20px
+      
+    
+  footer
+    background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/subtle_carbon.png)
+
+  #footer
+    position: relative
+    margin-top: -150px /* negative value of footer height */
+    height: 150px
+    clear: both
+    padding-top: 20px
+
+    background: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/subtle_carbon.png)
+
+    @include text-shadow(white 0 1px 0)
+
+    color: lighten(#3EC2EE, 30%)
+    border-top: 10px solid $grayLight
+    
+    a 
+      &:link, &:visited
+        color: white
+        font-weight: bold
+      
+      &:hover, &:focus, &:active 
+        color: $base3
+      
+    
+    p  
+      @include trailer 
+    b  
+      font-weight: bold 
+
+    .copyright
+      border-right: 2px solid #7E7C7C
+      margin-right: 20px
+
+    address
+      border-left: 2px solid #7E7C7C
+      display: block
+      padding-left: 20px
+      margin-bottom: $baseLineHeight
+      font-style: normal
+      line-height: $baseLineHeight
+
+.block-grid.two-up > li 
+  margin-top: 5px
+
+
+.quarter-note
+  content: "♪"
+
+
+[role="main"] 
+  @extend %type
+  @include trailer(5)
+  aside 
+    border: 1px solid $base2
+    text-align: center
+    b  
+      font-weight: bold 
+    p 
+      @include trailer(2) 
+  
+
+
+//-----------------------------------------------------------------------------
+// Banner
+  
+
+
+.footer-divider
+  position: absolute
+  left: 50%
+  top: 50%
+  bottom: 10%
+  border-left: 1px solid white
+  
+
+
+.right-shadow 
+  -moz-box-shadow:    3px 3px 5px 6px #ccc
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc
+  box-shadow:         3px 3px 5px 6px #ccc
+
+
+
+.image-wrap
+  float: left
+  padding: 10px 20px 10px 10px
+
+#artist_content
+  padding-left: 20px
+
+
+.taxon-title
+  color:black(0.5)
+  text-shadow: -1px -1px 1px #000000, 1px 1px 1px #CCCCCC
+
+#content
+  
+  .product:first-child
+    margin-left: 10px
+
+  .product
+    margin: 5px !important
+    text-align: center
+    +box-shadow(rgba(black, 0.8) 1px 2px 10px)
+    @include border-radius(5px)
+    
+    background: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/grid.png") repeat scroll 0% 0% transparent
+
+    h6
+      +single-box-shadow
+      background-color: $primary
+      color: $secondary
+    
+    height: 200px
+
+  .artists
+    .row:first-child
+      margin: 0px
+      text-align: center
+    h2
+      +single-box-shadow
+      background-color: $primary
+      color: $secondary
+
+*  
+  -moz-box-sizing: border-box 
+  -webkit-box-sizing: border-box 
+  box-sizing: border-box 
+
+
+* 
+  -webkit-transition: all 0.2s ease
+  -moz-transition:    all 0.2s ease
+  -ms-transition:     all 0.2s ease
+  -o-transition:      all 0.2s ease
+
+
+* 
+  vertical-align: middle

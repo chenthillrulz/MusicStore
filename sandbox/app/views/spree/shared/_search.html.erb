@@ -1,0 +1,9 @@
+<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
+<%= form_tag products_path, :method => :get, :class=>'navbar-search pull-left' do %>
+  <%= select_tag :taxon,
+        options_for_select([[t(:all_departments), '']] +
+                              @taxons.map {|t| [t.name, t.id]},
+                            @taxon ? @taxon.id : params[:taxon]), :class => 'hide' %>
+  <%= search_field_tag :keywords, params[:keywords], :placeholder => t(:search), :class=>'search-query span2' %>
+  <%= submit_tag t(:search), :name => nil, :class => 'btn hide' %>
+<% end %>
