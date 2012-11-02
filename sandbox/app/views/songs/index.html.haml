@@ -2,6 +2,7 @@
 
 
 - content_for :script do
+  = javascript_include_tag 'audiojs/audio.min.js'
   :javascript
     audiojs.events.ready(function(){
         var as = audiojs.createAll();
@@ -18,7 +19,7 @@
   - @songs.each do |song|
     %tr
       %td= song.name
-      %td= audio_tag song.mp3, :autoplay => true, :controls => true, :id => 'jplayer'
+      %td= audio_tag song.mp3, :controls => true
       %td.actions{ "data-hook"=>"admin_product_song_index_row_actions"}
         = link_to '', edit_admin_product_song_url(@product, song), :no_text => true, :class => 'edit icon_link with-tip icon-edit no-text', :data => {:action => 'edit'}
         = link_to '', [:admin, @product, song], :no_text => true, :class => 'delete-resource icon_link with-tip icon-trash no-text', :method => :delete, :data => {:action => 'remove'}

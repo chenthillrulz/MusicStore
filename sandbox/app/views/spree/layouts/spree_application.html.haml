@@ -12,7 +12,7 @@
     #wrap
       #main.container
         = render :partial => 'spree/shared/header'
-        .row{"data-hook" => ""}
+        .row.main-row{"data-hook" => ""}
           = breadcrumbs(@taxon)
           = yield(:gallery)
           #content{:class => "span9", "data-hook" => ""}
