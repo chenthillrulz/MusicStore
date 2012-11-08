@@ -127,6 +127,7 @@ module Spree
 
     # Is this a free order in which case the payment step should be skipped
     def payment_required?
+      Spree::OrderUpdater.new(self).update_totals
       total.to_f > 0.0
     end
 
@@ -408,7 +409,7 @@ module Spree
     end
 
     def pending_payments
-      payments.with_state('checkout')
+      payments.select {|p| p.state == "checkout"}
     end
 
     def process_payments!

@@ -114,6 +114,10 @@ describe Spree::Order do
     end
 
     it "should freeze all adjustments" do
+      # Stub this method as it's called due to a callback
+      # and it's irrelevant to this test
+      order.stub :has_available_shipment
+
       Spree::OrderMailer.stub_chain :confirm_email, :deliver
       adjustment1 = mock_model(Spree::Adjustment, :mandatory => true)
       adjustment2 = mock_model(Spree::Adjustment, :mandatory => false)
@@ -135,7 +139,6 @@ describe Spree::Order do
       payment = stub_model(Spree::Payment)
       payments = [payment]
       order.stub(:payments).and_return(payments)
-      payments.should_receive(:with_state).with('checkout').and_return(payments)
       payments.first.should_receive(:process!)
       order.process_payments!
     end
@@ -352,6 +355,24 @@ describe Spree::Order do
       it "does not include the currency" do
         order.display_total.to_s.should == "$10.55"
       end
+    end
+  end
+
+  # Regression test for #2191
+  context "when an order has an adjustment that zeroes the total, but another adjustment for shipping that raises it above zero" do
+    let!(:persisted_order) { create(:order) }
+    let!(:line_item) { create(:line_item) }
+    let!(:shipping_method) { create(:shipping_method) }
+
+    before do
+      persisted_order.line_items << line_item
+      persisted_order.adjustments.create(:amount => 19.99, :label => "Promotion")
+      persisted_order.state = 'delivery'
+    end
+
+    it "transitions from delivery to payment" do
+      persisted_order.shipping_method = shipping_method
+      persisted_order.next_transition.to.should == "payment"
     end
   end
 end
