@@ -63,16 +63,15 @@ $(document).ready ->
   
   $.getJSON url, (songs) ->
     _.each songs, (num) ->
-      songlist.push({title:  num.song.name, mp3: num.song.mp3.url, oga: ''})
+      songlist.push({title:  num.song.name, mp3: num.song.mp3.url, oga: num.song.ogg.url, id: num.song.id})
     console.log('mapped: ' + songlist)
     $('#details').text(songlist);
-
-  new jPlayerPlaylist(
-    jPlayer: "#jquery_jplayer_1"
-    cssSelectorAncestor: "#jp_container_1"
-    ,songlist,
-    swfPath: "../js"
-    supplied: "oga, mp3"
-    wmode: "window"
-  )
+    new jPlayerPlaylist(
+      jPlayer: "#jquery_jplayer_1",
+      cssSelectorAncestor: "#jp_container_1",
+      songlist,
+      swfPath: "/assets",
+      supplied: "mp3, oga",
+      wmode: "window",
+    )
 

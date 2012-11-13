@@ -1,20 +1,16 @@
 = render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Songs' }
 
-- content_for :script do
-  = stylesheet_for "audiojs/index.css"
-  = javascript_include_tag "audiojs/audio.min.js"
-
-  :javascript
-    audiojs.events.ready(function() {
-      var as = audiojs.createAll();
-    });
-
-= simple_form_for([:admin, @product, @song]) do |f|
+= simple_form_for([:admin, @product, @song], :remote => true) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
+    %p 
+      =@song.mp3
     = f.input :mp3
+    %p 
+      =@song.ogg
+    = f.input :ogg
     = audio_tag @song.mp3, :preload=>"auto"
     
 

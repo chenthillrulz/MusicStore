@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 320121001200146) do
+ActiveRecord::Schema.define(:version => 320121001200147) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 320121001200146) do
     t.integer  "product_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "ogg"
   end
 
   add_index "songs", ["product_id"], :name => "index_songs_on_product_id"

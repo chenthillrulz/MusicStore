@@ -33,6 +33,7 @@ class SongsController < Spree::Admin::BaseController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render json: @song }
     end
   end
@@ -67,9 +68,11 @@ class SongsController < Spree::Admin::BaseController
       if @song.update_attributes(params[:song])
         format.html { redirect_to location_after_save, notice: 'Song was successfully updated.' }
         format.json { head :no_content }
+        format.js {render :layout => false}
       else
         format.html { render action: "edit" }
         format.json { render json: @song.errors, status: :unprocessable_entity }
+        format.js {render :layout => false}
       end
     end
   end

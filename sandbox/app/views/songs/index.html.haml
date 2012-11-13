@@ -1,8 +1,5 @@
 = render :partial => 'spree/admin/shared/product_tabs', :locals => { :current => 'Songs' }
 
-= content_tag "div", id: "songs", data: {url: admin_product_songs_url(@product) } do
-  Loading products...
-
 %h1 Listing songs
 
 %audio{"preload" => true}
@@ -11,7 +8,7 @@
     %li
       = link_to song.name, "#", "data-src" => song.mp3
       .actions{ "data-hook"=>"admin_product_song_index_row_actions"}
-        = link_to '', edit_admin_product_song_url(@product, song), :no_text => true, :class => 'edit icon_link with-tip icon-edit no-text', :data => {:action => 'edit'}
+        = link_to '', edit_admin_product_song_url(@product, song), :no_text => true, :class => 'edit icon_link with-tip icon-edit no-text', :data => {:action => 'edit', :remote => "true"}
         = link_to '', [:admin, @product, song], :no_text => true, :class => 'delete-resource icon_link with-tip icon-trash no-text', :method => :delete, :data => {:action => 'remove'}
 
 #jquery_jplayer_1.jp-jplayer
@@ -61,13 +58,15 @@
         %a{:href => "http://get.adobe.com/flashplayer/", :target => "_blank"} Flash plugin
 
   %br
-  #details
+#details
+#songs{:data => {:url => admin_product_songs_url(@product) }}
 
-= link_to 'New Song', new_admin_product_song_url(@product), :class => 'btn'
+= link_to 'New Song', new_admin_product_song_url(@product), :class => 'btn', :remote => true
 
 - content_for :head do
   = stylesheet_link_tag 'blue.monday/jplayer.blue.monday.css'
-  = javascript_include_tag "jQuery.jPlayer.2.2.0/jquery.jplayer.min.js"
+  = javascript_include_tag "jQuery.jPlayer.2.2.0/jquery.jplayer.js"
   = javascript_include_tag "jQuery.jPlayer.2.2.0/add-on/jplayer.playlist.js"
-  = render :partial => "jplayer"
+  = javascript_include_tag 'songs'
+  
    
