@@ -29,6 +29,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'libv8', '~> 3.11.8'
+
 gem 'carrierwave'
 gem "mini_magick"
 gem 'ckeditor'
@@ -66,26 +68,31 @@ group :development do
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
-  gem 'win32console'
   gem 'guard'
   gem 'guard-livereload'
+  gem 'guard-rspec'
   gem 'factory_girl_rails', '~> 1.7.0'
   gem 'email_spec', '~> 1.2.1'
 
   gem 'ffaker'
-  gem 'shoulda-matchers', '~> 1.0.0'
-  gem 'capybara'
+  gem 'libnotify'
+  
   gem 'selenium-webdriver', '2.25.0'
-  gem 'database_cleaner', '0.7.1'
+  
   gem 'launchy'
 
   gem 'seed_dump'
   gem 'quiet_assets'
+
 end
 
-group :test, :development do
-  gem 'guard-rspec', '~> 0.5.0'
+group :test do
   gem "rspec-rails", "~> 2.0"
+  gem 'capybara'
+  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 1.0.0'
+  gem 'database_cleaner', '0.7.1'
+  gem 'guard-rspec'
 end
 
 gem 'select2-rails'
