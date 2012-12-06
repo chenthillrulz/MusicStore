@@ -5,4 +5,8 @@ class Song < ActiveRecord::Base
 
   mount_uploader :mp3, SoundUploader
   mount_uploader :ogg, SoundUploader
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :mp3, presence: true
 end

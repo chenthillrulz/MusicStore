@@ -16,4 +16,6 @@ class Artist < ActiveRecord::Base
 	  attr_accessible :content, :email, :image, :name, :band_member_ids, :band_ids, :products
 
 	  mount_uploader :image, ImageUploader
+
+	  validates :name, presence: true
 	end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :artist do
-    association :band
+    email 'test@merriweather.ca'
     sequence(:name) { |i| "Kathy#{i}" }
   end
 end
